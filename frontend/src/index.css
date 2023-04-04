@@ -1,0 +1,128 @@
+:root {
+  --font: 'Poppins', sans-serif;
+  --color: rgba(255, 255, 255, 0.87);
+  --bg-border: rgb(46, 50, 56);
+  --bg-darker: rgb(52, 58, 64);
+  --bg-dark: rgb(60, 66, 74);
+  --bg-light: rgb(72, 79, 89);
+  --bg-lighter: rgb(163, 172, 185);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-darker);
+  color: var(--color);
+  font-family: var(--font);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+h1 {
+  text-shadow: 3px 4px 2px var(--bg-border);
+  letter-spacing: 1.2px;
+  text-rendering: optimizeLegibility;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn {
+  color: var(--color);
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover {
+  color: #a5d5ff;
+}
+
+input[type=text] {
+  border: 1.5px solid;
+  border-left-color: var(--bg-border);
+  border-right-color: var(--bg-border);
+  border-bottom-color: var(--bg-border);
+  border-top-color: transparent;
+  background-color: var(--bg-dark);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 12px 18px;
+  color: var(--bg-lighter);
+  font-family: var(--font);
+}
+
+input[type=text]::placeholder {
+  color: var(--color);
+  letter-spacing: 1.2px;
+}
+
+input:focus {
+  outline: transparent;
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fade {
+  animation: fade 1s forwards ease-in;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: scale(0);
+  }
+}
+
+.glow {
+  border-radius: 50%;
+  color: var(--bg-border);
+  background: linear-gradient(145deg, #35fad9, #17a3a3);
+  transition: all 0.3s ease-in-out;
+}
+
+.active{
+  color: rgb(255, 241, 177) !important;
+}
+
+.rotate{
+  animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* main{
+} */
