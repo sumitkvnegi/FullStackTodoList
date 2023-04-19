@@ -57,6 +57,8 @@ const List = () => {
     });
     setRefresh(!refresh);
     setInput("");
+    setTitle("");
+    setVal("");
     toast.success("Task Added Successfully!",{
       position:"top-right",
       autoClose:5000,
@@ -170,6 +172,44 @@ const List = () => {
           style={{ width: "100%" }}
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if(e.code === "Enter"){
+              if (input.length > 0 || title.length > 0) {
+                if(input.length==0){
+                  toast.warn("Input Required",{
+                    position:"top-right",
+                    autoClose:5000,
+                    pauseOnHover:true,
+                    draggable:true,
+                    theme:"dark"
+                  });
+                  return;
+                }
+                if(title.length==0){
+                  toast.warn("Title Required",{
+                    position:"top-right",
+                    autoClose:5000,
+                    pauseOnHover:true,
+                    draggable:true,
+                    theme:"dark"
+                  });
+                  return;
+                }
+                if (val.length === 0) {
+                  toast.warn("must choose the time phase",{
+                    position:"top-right",
+                    autoClose:5000,
+                    pauseOnHover:true,
+                    draggable:true,
+                    theme:"dark"
+                  });
+                  return;
+                } else {
+                  pushToDatabase([title, input]);
+                }
+              }
+            }
+          }}
         />
         <BsPlay
           onClick={() => {
